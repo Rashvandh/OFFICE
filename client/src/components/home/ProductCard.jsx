@@ -1,0 +1,3 @@
+import { ShoppingBag } from 'lucide-react';
+import { useCart } from '../../context/CartContext.jsx';
+export default function ProductCard({product}){const {addItem}=useCart();return <article className="product-card"><div className="product-image"><span className="product-placeholder">{product.category}</span><span className="product-tag">{product.tag||'HERBAL CARE'}</span></div><div className="product-info"><div className="product-category">{product.category}</div><h3>{product.name}</h3><div className="product-bottom"><strong>₹{product.price.toLocaleString('en-IN')}</strong><button onClick={()=>addItem(product)} aria-label={`Add ${product.name} to cart`}><ShoppingBag size={17}/> Add</button></div></div></article>}

@@ -1,0 +1,3 @@
+import Product from '../models/Product.js';
+export async function listProducts(req,res,next){try{const {category,search}=req.query;const filter={isActive:true};if(category)filter.category=category;if(search)filter.name={$regex:search,$options:'i'};const products=await Product.find(filter).sort({isFeatured:-1,createdAt:-1});res.json({success:true,data:products});}catch(e){next(e)}}
+export async function getProduct(req,res,next){try{const product=await Product.findOne({slug:req.params.slug,isActive:true});if(!product)return res.status(404).json({success:false,message:'Product not found'});res.json({success:true,data:product});}catch(e){next(e)}}

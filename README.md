@@ -35,3 +35,4 @@ A React + Vite storefront and Express/MongoDB API starter based on the supplied 
 ## Notes
 The PDF contains some incomplete fields and draft legal/policy wording. Those have intentionally been left for business approval rather than invented. The initial product prices are illustrative placeholders and must not be used for live sales.
 # OFFICE
+# OFFICE

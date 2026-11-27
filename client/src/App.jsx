@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
-import Navbar from './components/layout/Navbar.jsx';
+import HeroNavigation from './components/home/HeroNavigation.jsx';
 import Footer from './components/layout/Footer.jsx';
+import MobileBottomBar from './components/layout/MobileBottomBar.jsx';
 import CartDrawer from './components/cart/CartDrawer.jsx';
 import ToastNotifications from './components/common/ToastNotifications.jsx';
 import EmptyState from './components/common/EmptyState.jsx';
@@ -74,7 +75,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <ScrollToTop />
       <div className="flex min-h-screen flex-col bg-ivory text-charcoal">
-        <Navbar />
+        <HeroNavigation />
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -121,6 +122,7 @@ export default function App() {
           </Routes>
         </div>
         <Footer />
+        <MobileBottomBar />
         <CartDrawer />
         <ToastNotifications />
       </div>

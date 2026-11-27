@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShoppingBag } from 'lucide-react';
+import { useCart } from '../../context/CartContext.jsx';
+import { useToast } from '../../context/ToastContext.jsx';
 import { formatCurrency } from '../../utils/formatters.js';
 
 const COLLECTION_CARDS = [
@@ -30,19 +32,33 @@ const COLLECTION_CARDS = [
 ];
 
 export default function EditorialCollectionSection({ catalogueProducts = [] }) {
+  const { addItem, openDrawer } = useCart();
+  const { showToast } = useToast();
+
+  const findProduct = (slug) =>
+    catalogueProducts.find((p) => p.slug === slug || p._id === slug);
+
   const getVerifiedPrice = (slug) => {
-    const match = catalogueProducts.find(
-      (p) => p.slug === slug || p._id === slug
-    );
+    const match = findProduct(slug);
     if (match && typeof match.price === 'number' && !Number.isNaN(match.price)) {
       return formatCurrency(match.price);
     }
     return null;
   };
 
+  const handleQuickAdd = (e, slug) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const match = findProduct(slug);
+    if (!match || typeof match.price !== 'number') return;
+    addItem(match, 1);
+    showToast(`${match.name} added to your bag.`);
+    openDrawer();
+  };
+
   return (
-    <section className="bg-[#F5EBDD] py-14 sm:py-20">
-      <div className="mx-auto w-[92%] max-w-[1440px] rounded-[12px] border border-[#E5D9C9] bg-[#F6EFE2] p-6 shadow-soft sm:w-[90%] sm:p-10 lg:p-14">
+    <section className="bg-[#F7F2E8] py-14 sm:py-20">
+      <div className="mx-auto w-[92%] max-w-[1440px] border border-[#E2D8C7] bg-[#FFFDF8] p-6 sm:w-[90%] sm:p-10 lg:p-14">
         {/* TOP SECTION: 40% Left Editorial Heading + 60% Right Three Cards */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-10">
           {/* Left Column (~40% -> 5 of 12 cols) */}
@@ -92,9 +108,19 @@ export default function EditorialCollectionSection({ catalogueProducts = [] }) {
                       {card.name}
                     </h3>
                     {verifiedPrice && (
-                      <p className="mt-0.5 text-xs font-medium text-[#29251F]/80">
-                        {verifiedPrice}
-                      </p>
+                      <div className="mt-1 flex items-center justify-between gap-2">
+                        <p className="text-xs font-medium text-[#292820]/80">
+                          {verifiedPrice}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={(e) => handleQuickAdd(e, card.slug)}
+                          className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#344B32] hover:text-[#A94732]"
+                        >
+                          <ShoppingBag className="h-3 w-3" />
+                          Quick Add
+                        </button>
+                      </div>
                     )}
                   </Link>
                 );

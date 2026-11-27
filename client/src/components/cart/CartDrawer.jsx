@@ -32,12 +32,12 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.25 }}
-            className="relative z-10 flex h-full w-full max-w-md flex-col bg-ivory shadow-2xl"
+            className="relative z-10 flex h-[100dvh] w-full max-w-md flex-col bg-[var(--color-cream)] pb-[env(safe-area-inset-bottom)] shadow-2xl"
           >
-            <div className="flex items-center justify-between border-b border-softgrey px-6 py-5">
+            <div className="flex items-center justify-between border-b border-[var(--color-gold-soft)] px-6 py-4">
               <div className="flex items-center gap-2.5">
-                <ShoppingBag className="h-5 w-5 text-forest" />
-                <h2 className="font-serif text-xl font-medium text-forest">
+                <ShoppingBag className="h-5 w-5 text-[var(--color-herbal)]" />
+                <h2 className="font-serif text-xl font-semibold text-[var(--color-ink)]">
                   Your Bag
                 </h2>
               </div>
@@ -45,9 +45,9 @@ export default function CartDrawer() {
                 type="button"
                 onClick={closeDrawer}
                 aria-label="Close shopping bag"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-softgrey bg-white text-forest"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-gold-soft)] bg-white text-[var(--color-ink)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 

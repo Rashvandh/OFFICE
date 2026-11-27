@@ -1,6 +1,13 @@
+# Ignore everything at repository root except the frontend (client/) and .gitignore
+/*
+!.gitignore
+!/client/
+
+# Ignore dependencies, build outputs, local env files, logs, and OS files
 node_modules/
 dist/
 .env
 .env.*
-!.env.example
 .DS_Store
+Thumbs.db
+*.log

@@ -5,37 +5,45 @@ export default {
     extend: {
       colors: {
         forest: {
-          DEFAULT: '#B93627', // GRAMIYAM Terracotta
-          dark: '#8F2A1D',    // Deep Terracotta
-          light: '#CE4A3A',
+          DEFAULT: '#A31F1A', // Primary Crimson / Deep Red Accent
+          dark: '#861814',
+          light: '#B92923',
+        },
+        herbal: {
+          DEFAULT: '#1F3D2B', // Deep Herbal Green
+          dark: '#14291C',
+          light: '#2C543B',
         },
         botanical: {
-          DEFAULT: '#455B3C', // Botanical Green
-          dark: '#293C28',    // Deep Green
+          DEFAULT: '#A31F1A',
+          dark: '#861814',
         },
         sage: {
-          DEFAULT: '#D8B4A6',
-          light: '#E9D8C5',
-          muted: '#777064',
+          DEFAULT: '#555046',
+          light: '#F7F1D8',
+          muted: '#6E685D',
         },
-        ivory: '#F5EBDD',     // Warm Ivory
-        cream: '#FFF9F1',     // Cream
-        heritage: '#E9D8C5',  // Natural Beige
+        ivory: '#FEFBEA',
+        cream: '#F7F1D8',
+        heritage: '#E6DEC6',
+        cardwhite: '#FFFDF8',
         gold: {
-          DEFAULT: '#B99A60',
-          light: '#D4BE91',
-          dark: '#967A44',
+          DEFAULT: '#C4A462',
+          light: '#DFC793',
+          dark: '#9C7E40',
         },
-        charcoal: '#29251F',  // Dark Text
-        softgrey: '#E9D8C5',  // Borders
+        charcoal: '#171614',
+        secondary: '#555046',
+        softgrey: '#E6DEC6',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 12px 34px rgba(41, 37, 31, 0.07)',
-        card: '0 4px 20px rgba(41, 37, 31, 0.04)',
+        soft: '0 12px 32px -12px rgba(23, 22, 20, 0.12)',
+        card: '0 4px 16px -4px rgba(23, 22, 20, 0.06)',
+        lift: '0 20px 44px -14px rgba(31, 61, 43, 0.18)',
       },
     },
   },
